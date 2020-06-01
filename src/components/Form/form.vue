@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:52
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 17:01:51
+ * @LastEditTime: 2020-06-01 17:23:44
 --> 
 <template>
     <div>
@@ -24,8 +24,7 @@
         },
         methods: {
             submit(){
-                var task = this.$children.find(x=>!x.validate(false))
-                console.log(this.$children)
+                var task = this.$children.find(x=>!x.validate(x.$children[0].value))
                 if(task){
                     this.$emit('submit',false)
                 }else{

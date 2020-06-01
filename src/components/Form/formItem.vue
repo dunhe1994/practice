@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:35
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 17:04:46
+ * @LastEditTime: 2020-06-01 17:21:40
 --> 
 <template>
     <div>
@@ -30,13 +30,12 @@
             }
         },
         methods: {
-            validate(){ 
+            validate(res){ 
                var rule = this.form.rules[this.prop]
-               var mode = this.$children[0].value
+               var mode = res
                 // mode = this.form.model[this.prop]
                this.errorMsg = ''
-               console.log(mode,this.$children[0])
-               if(rule.reg.test(this.$children[0].value)){
+               if(rule.reg.test(mode)){
                   this.errorMsg = rule.msg
                   return false;
                }
