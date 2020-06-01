@@ -4,16 +4,18 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:08:59
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-05-29 17:26:29
+ * @LastEditTime: 2020-06-01 16:50:51
 --> 
 <template>
   <div class="hello">
-    <Form :rule='rules'>
-      <FormItem v-model="userName">
-        <FormInput/>
+    <Form :rules='rules' @submit='submit' :model='model'>
+      <FormItem :prop='"username"' name='username'>
+        <label>姓名</label>
+        <FormInput type='text' v-model="username"/>
       </FormItem>
-      <FormItem v-model="pwd">
-        <FormInput/>
+      <FormItem :prop='"pwd"' name='pwd'>
+        <label>密码</label>
+        <FormInput type='password' v-model="pwd"/>
       </FormItem>
     </Form>
   </div>
@@ -21,8 +23,8 @@
 
 <script>
 import Form from '../components/Form/form'
-import FormInput from '../components/Form/formInput'
 import FormItem from '../components/Form/formItem'
+import FormInput from '../components/Form/formInput'
 export default {
   name: 'HelloWorld',
   props: {
@@ -30,12 +32,37 @@ export default {
   },
   data() {
     return {
-      userName: '',
-      pwd:''
+      username: '',
+      pwd:'',
+      model:{
+        username:'',
+        pwd:''
+      },
+      rules:{
+        username:{
+          key:'username',
+          msg:'姓名不能为空',
+          reg:/^S*$/
+        },
+        pwd:{
+          key:'pwd',
+          msg:'密码不能为空',
+          reg:/^S*$/
+        }
+      }
+    }
+  },
+  methods: {
+    submit(res) {
+      if(!res){
+         alert('请填写完整')
+      }
     }
   },
   components:{
-    Form
+    Form,
+    FormItem,
+    FormInput
   }
 }
 </script>
