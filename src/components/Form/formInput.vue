@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:17
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 17:23:11
+ * @LastEditTime: 2020-06-02 10:12:07
 --> 
 <template>
     <div>
@@ -28,7 +28,7 @@
         methods: {
             changeInput(res) {
                 this.$emit('input',res.target.value)
-                this.$parent.$emit('validate',res.target.value)
+                this.$parent.$emit('validate')
             }
         },
     }

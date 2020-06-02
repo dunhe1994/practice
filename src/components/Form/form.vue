@@ -4,12 +4,11 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:52
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 17:23:44
+ * @LastEditTime: 2020-06-02 10:07:24
 --> 
 <template>
     <div>
         <slot></slot>
-        <button @click="submit">提交</button>
     </div>
 </template>
 
@@ -23,13 +22,14 @@
             return {form : this}
         },
         methods: {
-            submit(){
-                var task = this.$children.find(x=>!x.validate(x.$children[0].value))
-                if(task){
-                    this.$emit('submit',false)
-                }else{
-                    this.$emit('submit',true)
-                }
+            validate(cb){
+                var task = this.$children.filter(x=>x.prop).
+                           map(y=>y.validate)
+                Promise.all(task).then(()=>{
+                    cb(true)
+                }).catch(()=>{
+                    cb(false)
+                })
             }
         },
     }

@@ -4,23 +4,26 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:08:59
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 11:12:41
+ * @LastEditTime: 2020-06-02 11:55:25
 --> 
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Form />
+    <Sync/>
     <Test/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from './components/Form/index'
 import Test from './components/test/test.vue'
+import Sync from './components/sync/child'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Test
+    Form,
+    Test,
+    Sync
   }
 }
 </script>

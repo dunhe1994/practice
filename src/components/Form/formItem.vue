@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:35
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-01 17:21:40
+ * @LastEditTime: 2020-06-02 15:24:55
 --> 
 <template>
     <div>
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-   
+   import schema from 'async-validator'
     export default {
         components:{
         },
-        props:['prop'],
+        props:['prop','model'],
         inject:['form'],
         mounted(){
-            this.$on('validate',(res)=>{this.validate(res)})
+            this.$on('validate',()=>{this.validate()})
             // this.$on('validate',()=>{this.validate()})
         },
         data() {
@@ -30,16 +30,19 @@
             }
         },
         methods: {
-            validate(res){ 
-               var rule = this.form.rules[this.prop]
-               var mode = res
-                // mode = this.form.model[this.prop]
-               this.errorMsg = ''
-               if(rule.reg.test(mode)){
-                  this.errorMsg = rule.msg
-                  return false;
-               }
-               return true
+            validate(){ 
+                var rule = this.form.rules[this.prop]
+                var value = this.form.model[this.prop]
+                this.errorMsg = ''
+                var des = {
+                    [this.prop]:rule
+                }
+                var validator  = new schema(des)
+                return validator.validate({[this.prop]:value},(err)=>{
+                    if(err){
+                        this.errorMsg = err[0].message
+                    }
+                })
             }
         },
     }

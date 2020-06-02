@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:08:59
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-02 10:31:45
+ * @LastEditTime: 2020-06-02 10:06:03
 --> 
 <template>
   <div class="hello">
@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import Form from './Form/form'
-import FormItem from './Form/formItem'
-import FormInput from './Form/formInput'
+import Form from './form'
+import FormItem from './formItem'
+import FormInput from './formInput'
 export default {
   name: 'HelloWorld',
   props: {
