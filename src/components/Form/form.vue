@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:15:52
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-02 10:07:24
+ * @LastEditTime: 2020-06-05 11:17:53
 --> 
 <template>
     <div>
@@ -24,7 +24,7 @@
         methods: {
             validate(cb){
                 var task = this.$children.filter(x=>x.prop).
-                           map(y=>y.validate)
+                           map(y=>y.validate())
                 Promise.all(task).then(()=>{
                     cb(true)
                 }).catch(()=>{

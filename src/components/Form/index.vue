@@ -4,11 +4,11 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:08:59
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-02 10:06:03
+ * @LastEditTime: 2020-06-05 11:17:22
 --> 
 <template>
   <div class="hello">
-    <Form :rules='rules' :model='ruleForm' ref="'ruleForm'">
+    <Form :rules='rules' :model='ruleForm' ref="ruleForm">
       <FormItem :prop='"username"' name='username'>
         <label>姓名</label>
         <FormInput type='text' v-model="ruleForm.username"/>
@@ -53,8 +53,11 @@ export default {
     }
   },
   methods: {
+    validate(){
+
+    },
     login() {
-      console.log(this.$refs.ruleForm)
+      console.log(this.$refs)
       this.$refs.ruleForm.validate(x=>{
           if(x){
               alert('提交')
