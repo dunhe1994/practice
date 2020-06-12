@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2020-06-02 11:34:39
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-02 14:38:35
+ * @LastEditTime: 2020-06-05 17:00:32
 --> 
 <template>
     <div>
@@ -30,7 +30,6 @@
                 pwd:''
             }
         },
-        
     }
 </script>
 

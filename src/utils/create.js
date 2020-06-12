@@ -4,24 +4,23 @@
  * @Author: sueRimn
  * @Date: 2020-06-05 11:24:44
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-05 11:57:29
+ * @LastEditTime: 2020-06-05 16:45:56
  */ 
 //创建组件
 import Vue from 'vue'
-function create (comp,porps){
+function create (comp,props){
     const vm = new Vue({
         render(h){
-           return h(comp,{porps})
+           return h(comp,{props})
         }
     }).$mount()
     const element = vm.$el
     document.body.appendChild(element)
     var component = vm.$children[0]
     component.remove = function(){
-        document.body.remove(vm.$el)
+        document.body.removeChild(vm.$el)
         vm.$destroy()
     }
-    console.log(vm,888)
     return component
 }
 export default create

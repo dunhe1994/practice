@@ -4,13 +4,16 @@
  * @Author: sueRimn
  * @Date: 2020-05-29 17:08:59
  * @LastEditors: sueRimn
- * @LastEditTime: 2020-06-02 11:55:25
+ * @LastEditTime: 2020-06-12 16:55:59
 --> 
 <template>
   <div id="app">
     <Form />
     <Sync/>
     <Test/>
+    <Recursion/>
+    <router-view />
+    <router-link to='a'/>
   </div>
 </template>
 
@@ -18,12 +21,14 @@
 import Form from './components/Form/index'
 import Test from './components/test/test.vue'
 import Sync from './components/sync/child'
+import Recursion from './components/recursion/index';
 export default {
   name: 'App',
   components: {
     Form,
     Test,
-    Sync
+    Sync,
+    Recursion
   }
 }
 </script>
